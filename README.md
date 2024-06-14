@@ -1,30 +1,12 @@
-# Cairo1JS
+# Cairo1JS Local Enviornment Set up
 
 ## Presentation
 
-This small project demonstrates how to create a DAPP to interact with the Starknet blockchain.  
-You can interact easily with Cairo 1 smart-contract, using your Argent-X or Braavos wallets (installed in your browser).  
+This repo is a [fork](https://github.com/PhilippeR26/Cairo1JS/tree/main/src) used to demonstrates how StarkNet DAPP builders can create a local environment to test upcoming features/fixes of the StarkNet snap metamask extension.
 
-Analyze the code to see how to create a such DAPP (start [here](src/app/page.tsx))  
+<img src="https://github.com/khanti42/Cairo1JS/assets/170082512/23f765b2-405d-49f1-b016-9712d5e2af24" width="400">
 
 The DAPP is made in the next.js framework, using the experimental **appDir** feature. Coded in Typescript. Using React, Zustand context & Chaka-ui components.
-
-## Getting Started 🚀
-
-First, create a `.env.local` file in the root, including your configuration :
-```bash
-PROVIDER_URL = "https://json-rpc.starknet-testnet.xxx"
-ACCOUNT_PRIV_KEY = "0x123"
-```
-
-Then, run the development server:
-
-```bash
-npm i
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.  
 
 ### Setting Up Local Test Environment for StarkNet MetaMask Snap with `get-starknet`
 
@@ -42,6 +24,9 @@ graph TD
     RPC_CLIENT -->|TALKS WITH| REMOTE_ENTRY["localhost:8082/remoteEntry.js"]
     REMOTE_ENTRY -->|USES | METAMASK_SNAP["localhost:8081"]
 ```
+
+
+
 
 This setup allows a StarkNet DAPP to test upcoming features in the MetaMask Snap locally before these changes are released. This early testing facilitates feedback during the iterative process with StarkNet DAPP builders.
 
