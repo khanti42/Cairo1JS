@@ -31,9 +31,10 @@ export default function PlayWithCairo1() {
 
     function increaseBalance() {
         console.log("increase-Cairo1ReadContract=", cairo1WriteContract.functions);
-        const call = cairo1WriteContract.populate("increase_counter", [10]);
-        console.log("Call=", call);
-        accountWalletFromContext?.execute(call, undefined)
+        const call1 = cairo1WriteContract.populate("increase_counter", [10]);
+        const call2 = cairo1WriteContract.populate("increase_counter", [10]);
+        console.log("Call=", call1, call2);
+        accountWalletFromContext?.execute([call1, call2], undefined)
             .then((resp: InvokeFunctionResponse) => {
                 console.log("increaseBalance txH =", resp.transaction_hash);
                 setTransactionHash(resp.transaction_hash);
@@ -84,7 +85,6 @@ export default function PlayWithCairo1() {
                         </div>
                         {!!transactionHash && (
                             <Box bg='green.300' color='black' borderWidth='1px' borderColor='green.800' borderRadius='md' p={1} margin={2}>
-                                <Text className={styles.text1}>Transaction version {process.env.NEXT_PUBLIC_TX_VERSION}.</Text>
                                 <TransactionStatus transactionHash={transactionHash}></TransactionStatus>
                             </Box>
                         )
